@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+.or-p {
+  content: "";
+  position: relative;
+}
+
+.or-p::before {
+  content: "";
+  position: absolute;
+  background-color: #f0f5fa;
+  width: 230px;
+  height: 2px;
+  top: 50%;
+  left: 0;
+}
+
+.or-p::after {
+  content: "";
+  position: absolute;
+  background-color: #f0f5fa;
+  width: 230px;
+  height: 2px;
+  top: 50%;
+  right: 0;
+}
+
+.users {
+  border-right: 1px solid #f3f3f3;
+}
