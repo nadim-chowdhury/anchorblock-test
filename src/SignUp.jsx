@@ -1,10 +1,22 @@
-import React from "react";
-import Navbar from "./Navbar";
+import React, { useState } from "react";
 import google from "./assets/google.png";
 import apple from "./assets/apple.png";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signUpUser } from "./redux/authSlice";
 
 const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSignUp = () => {
+    console.log(email, name, password);
+    dispatch(signUpUser(email, name, password));
+  };
+
   return (
     <div className="sign-up w-[540px] mx-auto">
       <div className="top text-center mb-5">
@@ -15,12 +27,12 @@ const SignUp = () => {
       </div>
 
       <div className="auth flex items-center justify-center mb-4">
-        <div className="google flex items-center bg-[#F0F5FA] mr-3 rounded-2xl p-2 w-[255px] justify-center h-[58px]">
+        <div className="google flex items-center bg-[#F0F5FA] mr-3 rounded-2xl p-2 w-[255px] justify-center h-[58px] cursor-pointer">
           <img className="h-[25px] w-[25px] mr-1" src={google} alt="google" />
           <p>Sign Up with Google</p>
         </div>
 
-        <div className="apple flex items-center bg-[#F0F5FA] ml-3 rounded-2xl p-2 w-[255px] justify-center h-[58px]">
+        <div className="apple flex items-center bg-[#F0F5FA] ml-3 rounded-2xl p-2 w-[255px] justify-center h-[58px] cursor-pointer">
           <img className="h-[25px] w-[25px] mr-1" src={apple} alt="apple" />
           <p>Sign Up with Apple ID</p>
         </div>
@@ -37,16 +49,22 @@ const SignUp = () => {
             placeholder="Your email"
             required
             className="rounded-2xl px-4 mb-4 border h-[58px]"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="text"
             placeholder="Your Name"
             className="rounded-2xl px-4 mb-4 border h-[58px]"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="text"
             placeholder="Create Password"
             className="rounded-2xl px-4 mb-4 border h-[58px]"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <div className="flex items-center text-[#B0B7C3] mb-4">
             <input
@@ -55,10 +73,12 @@ const SignUp = () => {
             />
             <span>I agree to the Terms & Conditions</span>
           </div>
+
           <input
-            className="w-[540px] h-[58px] bg-[#377DFF] text-white rounded-2xl"
+            className="w-[540px] h-[58px] bg-[#377DFF] text-white rounded-2xl cursor-pointer"
             type="button"
             value="Sign Up"
+            onClick={handleSignUp}
           />
         </form>
       </div>

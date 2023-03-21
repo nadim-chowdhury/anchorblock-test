@@ -31,13 +31,13 @@ const Users = () => {
     <div className="users flex">
       <div className="left-side mx-8 text-[#A7AFBC] mt-4 w-[216px]">
         <p className="h-[50px] flex items-center pl-2">
-          <Link to="users/dashboard">Dashboard</Link>
+          <Link to="dashboard">Dashboard</Link>
         </p>
         <p className="h-[50px] flex items-center bg-[#F0F5FA] pl-2 rounded-xl">
           <Link to="users">Users</Link>
         </p>
         <p className="h-[50px] flex items-center pl-2">
-          <Link to="users/sales">Sales</Link>
+          <Link to="sales">Sales</Link>
         </p>
       </div>
 
@@ -49,7 +49,7 @@ const Users = () => {
           <p className="w-[10%]">#Id</p>
           <p className="w-[40%]">User</p>
           <p className="w-[40%]">Email</p>
-          <p className="w-[10%]">Options</p>
+          <p className="w-[10%] flex justify-end">Options</p>
         </div>
 
         <div>
@@ -57,11 +57,11 @@ const Users = () => {
             return (
               <div
                 key={d.id}
-                className="flex justify-between items-center my-4 text-[#4E5D78]"
+                className="flex justify-between items-center my-4 px-8 mr-10 text-[#4E5D78]"
               >
-                <p className="w-[10%] flex justify-center">{d.id}</p>
+                <p className="w-[10%]">{d.id}</p>
 
-                <div className="flex items-center justify-start w-[40%]">
+                <div className="w-[40%] flex items-center justify-start">
                   <img
                     className="w-[60px] h-[60px] rounded-xl"
                     src={d.avatar}
@@ -74,7 +74,7 @@ const Users = () => {
                 </div>
 
                 <p className="w-[40%]">{d.email}</p>
-                <p className="w-[10%]">...</p>
+                <p className="w-[10%] flex justify-end">...</p>
               </div>
             );
           })}
